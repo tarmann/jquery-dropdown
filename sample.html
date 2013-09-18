@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Dropdown</title>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">
+
+  <style>
+  .sdui-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .sdui-dropdown-content{
+    position: absolute;
+    display: none;
+    background: white;
+    margin-top: 5px;
+    z-index: 10;
+  }
+
+  .sdui-dropdown-content ul{
+    list-style: none;
+    padding: 0px;
+    border: solid 1px #aaa;
+    width: 200px;
+    margin: 0px;
+  }
+
+  .sdui-dropdown-content ul li{
+    
+  }
+
+  .sdui-dropdown-content ul a{  
+    display: block;
+    padding: 5px;
+  }
+
+  .sdui-dropdown-content ul a:hover{
+    background: #f5f5f5;
+    text-decoration: none;
+  }
+
+  .sdui-dropdown.expanded .sdui-dropdown-content{
+    display: block;
+  }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>jQuery Dropdown Plugin</h1>
+
+  <h3>On Click</h3>
+
+<pre>
+$('.sdui-dropdown-click').dropdown();
+</pre>
+
+  <div class="sdui-dropdown sdui-dropdown-click">
+  	<a class="sdui-dropdown-label btn btn-default"> Class </a>
+  	<div class="sdui-dropdown-content">
+  		<ul>
+  			<li><a href="#">Fighter</a></li>
+  			<li><a href="#">Cleric</a></li>
+  			<li><a href="#">Wizard</a></li>
+  			<li><a href="#">Rogue</a></li>
+      </ul>
+  	</div>
+  </div>
+
+  <div class="sdui-dropdown sdui-dropdown-click">
+    <a class="sdui-dropdown-label btn btn-default"> Race </a>
+    <div class="sdui-dropdown-content">
+      <ul>
+        <li><a href="#">Human</a></li>
+        <li><a href="#">Dward</a></li>
+        <li><a href="#">Elf</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sdui-dropdown sdui-dropdown-click">
+    <a class="sdui-dropdown-label btn btn-default"> Weapon </a>
+    <div class="sdui-dropdown-content">
+      <ul>
+        <li><a href="#">Sword</a></li>
+        <li><a href="#">Bow</a></li>
+        <li><a href="#">Axe</a></li>
+      </ul>
+    </div>
+  </div>    
+
+  <hr>
+
+  <h3>On Hover</h3>
+
+<pre>
+$('.sdui-dropdown-click').dropdown({ toggleOn: 'hover' });
+</pre>
+
+
+  <div class="sdui-dropdown sdui-dropdown-hover">
+    <a class="sdui-dropdown-label btn btn-default"> Class </a>
+    <div class="sdui-dropdown-content">
+      <ul>
+        <li><a href="#">Fighter</a></li>
+        <li><a href="#">Cleric</a></li>
+        <li><a href="#">Wizard</a></li>
+        <li><a href="#">Rogue</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sdui-dropdown sdui-dropdown-hover">
+    <a class="sdui-dropdown-label btn btn-default"> Race </a>
+    <div class="sdui-dropdown-content">
+      <ul>
+        <li><a href="#">Human</a></li>
+        <li><a href="#">Dward</a></li>
+        <li><a href="#">Elf</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sdui-dropdown sdui-dropdown-hover">
+    <a class="sdui-dropdown-label btn btn-default"> Weapon </a>
+    <div class="sdui-dropdown-content">
+      <ul>
+        <li><a href="#">Sword</a></li>
+        <li><a href="#">Bow</a></li>
+        <li><a href="#">Axe</a></li>
+      </ul>
+    </div>
+  </div>  
+
+</div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="jquery-dropdown.js"></script>
+
+<script type="text/javascript">
+$(function(){
+  $('.sdui-dropdown-click').dropdown({ closeOnBlur: false });
+  $('.sdui-dropdown-hover').dropdown({ toggleOn: 'hover' });
+});
+</script>	
+
+</body>
+</html>
