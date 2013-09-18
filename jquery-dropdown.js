@@ -1,14 +1,29 @@
+/* 
+ *   jQuery Dropdown Plugin 1.0
+ *   https://github.com/tarmann/jquery-dropdown
+ *
+ *   Copyright 2013, Bruno Tarmann
+ *   http://tarmann.com.br
+
+ *   Based on jQuery Boilerplate by Zeno Rocha with the help of Addy Osmani
+ *   http://jqueryboilerplate.com
+ *
+ *   Licensed under the MIT license:
+ *   http://www.opensource.org/licenses/MIT
+ */
+
+
 ;(function ( $, window, document, undefined ) {
 
     var pluginName = "dropdown",
         defaults = {
           expandedClass: 'expanded',
-          // options: click, hover
+          
           toggleOn: 'click', 
           closeOnBlur: true,
           
-          elementLabelClass: '.sdui-dropdown-label',
-          elementContentClass: '.sdui-dropdown-content',
+          elementLabel: '.sdui-dropdown-label',
+          elementContent: '.sdui-dropdown-content',
 
           // callback
           open: function(){},
@@ -31,7 +46,7 @@
         },
 
         initContentIndex: function(){
-          this.$contentElement = $(this.settings.elementContentClass, this.element);
+          this.$contentElement = $(this.settings.elementContent, this.element);
           this.$contentElement.attr('data-dropdown-index', this.$contentElement.css('z-index'));
         },
 
@@ -49,7 +64,7 @@
 
           switch (this.settings.toggleOn) {
             case 'click':
-              $(this.settings.elementLabelClass, this.element).click( function(e){
+              $(this.settings.elementLabel, this.element).click( function(e){
                 self.toggle(e);
               });
               
