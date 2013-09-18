@@ -19,7 +19,7 @@
         defaults = {
           expandedClass: 'expanded',
           
-          toggleOn: 'click', 
+          toggleOn: 'click',
           closeOnBlur: true,
           
           elementLabel: '.sdui-dropdown-label',
@@ -98,7 +98,14 @@
         },
 
         toggleElementClass: function(e){
-            $( this.element ).toggleClass( this.settings.expandedClass );
+            $( this.element )
+              .toggleClass( this.settings.expandedClass );
+
+            if(this.settings.showAnim){
+              $( this.settings.elementContent, this.element )
+                .toggle( this.settings.showAnim )
+            }
+            
             // TODO: on close, restore z-index
         },
 

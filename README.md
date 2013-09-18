@@ -58,8 +58,18 @@ Selector of the element used as the content on the dropdown.
 elementContent: '.sdui-dropdown-content'
 ```
 
+#### showAnim (string)
+
+Use a jQuery UI animation to display the content element. Requires: jQuery UI.
+
+```js
+showAnim: ''
+```
+
 ### TODO
 
+* First load of showAnim is not working properly
+* Change position of element if is on the edge of the page
 * Handle which should be in front 
 * Close open elements inside a group items when closeOnBlur: false
 

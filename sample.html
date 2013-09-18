@@ -44,6 +44,59 @@
   .sdui-dropdown.expanded .sdui-dropdown-content{
     display: block;
   }
+
+  /* dropdown menu */
+
+  .menu {
+    overflow: hidden;
+    /*background: #666;*/
+    height: 80px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .menu ul {
+    background: #555;
+    list-style: none;
+    padding: 0px;
+    height: 40px;
+  }
+
+  .menu li {
+    float: left;
+  }
+
+  .menu .menu-item a{
+    background: #555;
+    display: block;
+    padding: 10px;
+    color: white;
+  }
+
+  .menu a:hover{
+    background: #777;
+    text-decoration: none;
+  }
+
+  .menu .menu-submenu {
+    background: #666;
+    display: none;
+    position: absolute;    
+    width: 100%;
+    left: 0px;
+  }
+
+  .menu .menu-submenu a {
+    background: #666;
+  }
+
+  .menu .menu-submenu a:hover {
+    font-weight: bold;
+  }
+
+  .expanded .menu-submenu {
+    /*display: block;*/
+  }
   </style>
 </head>
 <body>
@@ -52,6 +105,43 @@
   <h1>jQuery Dropdown Plugin</h1>
 
   <p>A simple and lighweight jQuery plugin for creating dropdown menus.</p>
+
+  <div>
+    <h3>Dropdown Menu</h3>
+
+    <div class="menu">
+      <ul>
+        <li class="menu-item">
+          <a href="#" class="menu-item-label">Option 1</a>
+          <ul class="menu-submenu">
+            <li><a href="#">Wolverine</a></li>
+            <li><a href="#">Hulk</a></li>
+            <li><a href="#">Captain America</a></li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-item-label">Option 2</a>
+        </li>
+        <li class="menu-item">
+          <a href="#" class="menu-item-label">Option 3</a>
+          <ul class="menu-submenu">
+            <li><a href="#">Submenu 1</a></li>
+            <li><a href="#">Submenu 2</a></li>
+            <li><a href="#">Submenu 3</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+<pre>
+$('.menu .menu-item').dropdown({
+  toggleOn: 'hover',
+  elementContent: '.menu-submenu',
+  showAnim: 'fade'
+});
+</pre>
+
+  </div>
 
   <div>
     <h3>On Click</h3>
@@ -136,53 +226,65 @@
     <hr>
   </div>
 
-  <h3>On Hover</h3>
+  <div>
+    <h3>On Hover</h3>
 
-  <pre>$('.sdui-dropdown-click').dropdown({ event: 'hover' });</pre>
+    <pre>$('.sdui-dropdown-click').dropdown({ event: 'hover' });</pre>
 
-  <div class="sdui-dropdown sdui-dropdown-hover">
-    <a class="sdui-dropdown-label btn btn-default"> Class </a>
-    <div class="sdui-dropdown-content">
-      <ul>
-        <li><a href="#">Fighter</a></li>
-        <li><a href="#">Cleric</a></li>
-        <li><a href="#">Wizard</a></li>
-        <li><a href="#">Rogue</a></li>
-      </ul>
+    <div class="sdui-dropdown sdui-dropdown-hover">
+      <a class="sdui-dropdown-label btn btn-default"> Class </a>
+      <div class="sdui-dropdown-content">
+        <ul>
+          <li><a href="#">Fighter</a></li>
+          <li><a href="#">Cleric</a></li>
+          <li><a href="#">Wizard</a></li>
+          <li><a href="#">Rogue</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sdui-dropdown sdui-dropdown-hover">
+      <a class="sdui-dropdown-label btn btn-default"> Race </a>
+      <div class="sdui-dropdown-content">
+        <ul>
+          <li><a href="#">Human</a></li>
+          <li><a href="#">Dward</a></li>
+          <li><a href="#">Elf</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sdui-dropdown sdui-dropdown-hover">
+      <a class="sdui-dropdown-label btn btn-default"> Weapon </a>
+      <div class="sdui-dropdown-content">
+        <ul>
+          <li><a href="#">Sword</a></li>
+          <li><a href="#">Bow</a></li>
+          <li><a href="#">Axe</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-
-  <div class="sdui-dropdown sdui-dropdown-hover">
-    <a class="sdui-dropdown-label btn btn-default"> Race </a>
-    <div class="sdui-dropdown-content">
-      <ul>
-        <li><a href="#">Human</a></li>
-        <li><a href="#">Dward</a></li>
-        <li><a href="#">Elf</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="sdui-dropdown sdui-dropdown-hover">
-    <a class="sdui-dropdown-label btn btn-default"> Weapon </a>
-    <div class="sdui-dropdown-content">
-      <ul>
-        <li><a href="#">Sword</a></li>
-        <li><a href="#">Bow</a></li>
-        <li><a href="#">Axe</a></li>
-      </ul>
-    </div>
-  </div>  
-
 </div>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="jquery-dropdown.js"></script>
 
 <script type="text/javascript">
 $(function(){
+  $('.menu .menu-item').dropdown({
+    toggleOn: 'hover',
+    elementContent: '.menu-submenu',
+    showAnim: 'fade'
+  });
+
   $('.sdui-dropdown-click').dropdown();
-  $('.sdui-dropdown-click-panel').dropdown({ closeOnBlur: false });
+  $('.sdui-dropdown-click-panel').dropdown({
+    closeOnBlur: false,
+    showAnim: 'fade'
+  });
+
   $('.sdui-dropdown-hover').dropdown({ toggleOn: 'hover' });
 });
 </script>	
